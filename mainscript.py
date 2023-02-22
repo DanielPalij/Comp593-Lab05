@@ -1,11 +1,25 @@
 from sys import argv
-import poke_api
-import api_pastebin
+from poke_api import get_pokemon
+from api_pastebin import post_new_paste
 
 def main():
-   
-def get_search_term():
+    pname = argv[1]
+    poke = get_pokemon(pname)
     
+    if pname:
+        
+        title, body_text = get_pokedata(pname, poke)
+        paste_url = post_new_paste(title, body_text, '1M')
+        print(f'URL of new paste {paste_url}')
+
+
+def get_pokedata(pname, poke):
+    title = f"{pname}'s abilities" .capitalize()
+    p_abilities= [" - "+p['ability']['name'] for p in poke['abilities']]
+    div = '\n'
+    body_text = div.join(p_abilities)
+    
+    return title, body_text
 
 
    
