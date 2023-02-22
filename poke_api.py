@@ -7,11 +7,11 @@ def get_pokemon(pinfo):
     r = requests.get(url)
     if r.status_code == 200:
         data = r.json()
-    
         return data
+       
     
     return None
 
-print(get_pokemon('1'))
+#print(get_pokemon('ditto'))
 
 
