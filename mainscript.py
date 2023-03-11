@@ -10,7 +10,12 @@ def main():
         
         title, body_text = get_pokedata(pname, poke)
         paste_url = post_new_paste(title, body_text, '1M')
+        print(f'Getting information for {pname}... success')
         print(f'URL of new paste {paste_url}')
+
+    else:
+        print(f'Getting information for {pname}...failure \nResponse code: 404 (Not Found)')
+        
 
 
 def get_pokedata(pname, poke):
@@ -23,7 +28,6 @@ def get_pokedata(pname, poke):
 
 
    
-
 if __name__ == '__main__':
     main()
 
